@@ -10,7 +10,11 @@ import main.MainWindow;
  * @author Chico
  */
 public class Gameplay extends javax.swing.JPanel {
-
+    private boolean cartaUp = false;
+    private ImageIcon img_1;
+    private ImageIcon img_2;
+    private JButton[] btnSeleccionado = new JButton[2];
+    private boolean primerCarta = false;
     private final MainWindow gameplay;
     
     private Funcionamiento funcionamiento = new Funcionamiento();
@@ -22,6 +26,33 @@ public class Gameplay extends javax.swing.JPanel {
         initComponents();
         this.gameplay = gameplay;
         setCartas();
+    }
+    
+    private void botonEnable(JButton boton) {
+        if(!cartaUp) {
+            boton.setEnabled(false);
+            img_1 = (ImageIcon) boton.getDisabledIcon();
+            btnSeleccionado[0] = boton;
+            cartaUp = true;
+            primerCarta = false;
+        } else {
+            boton.setEnabled(false);
+            img_2 = (ImageIcon) boton.getDisabledIcon();
+            btnSeleccionado[1] = boton;
+            primerCarta = true;
+        }
+    }
+    
+    private void comparar() {
+        if(cartaUp && primerCarta) {
+            
+            if(img_1.getDescription().compareTo(img_2.getDescription()) != 0) {
+                btnSeleccionado[0].setEnabled(true);
+                btnSeleccionado[1].setEnabled(true);
+
+            }
+        cartaUp = false;
+        }
     }
 
     /**
@@ -58,6 +89,11 @@ public class Gameplay extends javax.swing.JPanel {
         btn_01.setBorder(null);
         btn_01.setFocusable(false);
         btn_01.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cr.png"))); // NOI18N
+        btn_01.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_01MouseExited(evt);
+            }
+        });
         btn_01.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_01ActionPerformed(evt);
@@ -68,6 +104,11 @@ public class Gameplay extends javax.swing.JPanel {
         btn_02.setBorder(null);
         btn_02.setFocusable(false);
         btn_02.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cr.png"))); // NOI18N
+        btn_02.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_02MouseExited(evt);
+            }
+        });
         btn_02.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_02ActionPerformed(evt);
@@ -78,6 +119,11 @@ public class Gameplay extends javax.swing.JPanel {
         btn_03.setBorder(null);
         btn_03.setFocusable(false);
         btn_03.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cr.png"))); // NOI18N
+        btn_03.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_03MouseExited(evt);
+            }
+        });
         btn_03.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_03ActionPerformed(evt);
@@ -88,6 +134,11 @@ public class Gameplay extends javax.swing.JPanel {
         btn_04.setBorder(null);
         btn_04.setFocusable(false);
         btn_04.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cr.png"))); // NOI18N
+        btn_04.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_04MouseExited(evt);
+            }
+        });
         btn_04.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_04ActionPerformed(evt);
@@ -98,6 +149,11 @@ public class Gameplay extends javax.swing.JPanel {
         btn_05.setBorder(null);
         btn_05.setFocusable(false);
         btn_05.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cr.png"))); // NOI18N
+        btn_05.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_05MouseExited(evt);
+            }
+        });
         btn_05.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_05ActionPerformed(evt);
@@ -108,6 +164,11 @@ public class Gameplay extends javax.swing.JPanel {
         btn_06.setBorder(null);
         btn_06.setFocusable(false);
         btn_06.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cr.png"))); // NOI18N
+        btn_06.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_06MouseExited(evt);
+            }
+        });
         btn_06.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_06ActionPerformed(evt);
@@ -118,6 +179,11 @@ public class Gameplay extends javax.swing.JPanel {
         btn_07.setBorder(null);
         btn_07.setFocusable(false);
         btn_07.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cr.png"))); // NOI18N
+        btn_07.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_07MouseExited(evt);
+            }
+        });
         btn_07.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_07ActionPerformed(evt);
@@ -128,6 +194,11 @@ public class Gameplay extends javax.swing.JPanel {
         btn_08.setBorder(null);
         btn_08.setFocusable(false);
         btn_08.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cr.png"))); // NOI18N
+        btn_08.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_08MouseExited(evt);
+            }
+        });
         btn_08.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_08ActionPerformed(evt);
@@ -138,6 +209,11 @@ public class Gameplay extends javax.swing.JPanel {
         btn_09.setBorder(null);
         btn_09.setFocusable(false);
         btn_09.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cr.png"))); // NOI18N
+        btn_09.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_09MouseExited(evt);
+            }
+        });
         btn_09.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_09ActionPerformed(evt);
@@ -148,6 +224,11 @@ public class Gameplay extends javax.swing.JPanel {
         btn_10.setBorder(null);
         btn_10.setFocusable(false);
         btn_10.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cr.png"))); // NOI18N
+        btn_10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_10MouseExited(evt);
+            }
+        });
         btn_10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_10ActionPerformed(evt);
@@ -158,6 +239,11 @@ public class Gameplay extends javax.swing.JPanel {
         btn_11.setBorder(null);
         btn_11.setFocusable(false);
         btn_11.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cr.png"))); // NOI18N
+        btn_11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_11MouseExited(evt);
+            }
+        });
         btn_11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_11ActionPerformed(evt);
@@ -168,6 +254,11 @@ public class Gameplay extends javax.swing.JPanel {
         btn_12.setBorder(null);
         btn_12.setFocusable(false);
         btn_12.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cr.png"))); // NOI18N
+        btn_12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_12MouseExited(evt);
+            }
+        });
         btn_12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_12ActionPerformed(evt);
@@ -178,6 +269,11 @@ public class Gameplay extends javax.swing.JPanel {
         btn_13.setBorder(null);
         btn_13.setFocusable(false);
         btn_13.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cr.png"))); // NOI18N
+        btn_13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_13MouseExited(evt);
+            }
+        });
         btn_13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_13ActionPerformed(evt);
@@ -188,6 +284,11 @@ public class Gameplay extends javax.swing.JPanel {
         btn_14.setBorder(null);
         btn_14.setFocusable(false);
         btn_14.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cr.png"))); // NOI18N
+        btn_14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_14MouseExited(evt);
+            }
+        });
         btn_14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_14ActionPerformed(evt);
@@ -198,6 +299,11 @@ public class Gameplay extends javax.swing.JPanel {
         btn_15.setBorder(null);
         btn_15.setFocusable(false);
         btn_15.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cr.png"))); // NOI18N
+        btn_15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_15MouseExited(evt);
+            }
+        });
         btn_15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_15ActionPerformed(evt);
@@ -208,6 +314,11 @@ public class Gameplay extends javax.swing.JPanel {
         btn_16.setBorder(null);
         btn_16.setFocusable(false);
         btn_16.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cr.png"))); // NOI18N
+        btn_16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_16MouseExited(evt);
+            }
+        });
         btn_16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_16ActionPerformed(evt);
@@ -353,6 +464,86 @@ public class Gameplay extends javax.swing.JPanel {
         botonEnable(btn_16);
     }//GEN-LAST:event_btn_16ActionPerformed
 
+    private void btn_01MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_01MouseExited
+        // TODO add your handling code here:
+        comparar();
+    }//GEN-LAST:event_btn_01MouseExited
+
+    private void btn_02MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_02MouseExited
+        // TODO add your handling code here:
+        comparar();
+    }//GEN-LAST:event_btn_02MouseExited
+
+    private void btn_03MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_03MouseExited
+        // TODO add your handling code here:
+        comparar();
+    }//GEN-LAST:event_btn_03MouseExited
+
+    private void btn_04MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_04MouseExited
+        // TODO add your handling code here:
+        comparar();
+    }//GEN-LAST:event_btn_04MouseExited
+
+    private void btn_05MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_05MouseExited
+        // TODO add your handling code here:
+        comparar();
+    }//GEN-LAST:event_btn_05MouseExited
+
+    private void btn_06MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_06MouseExited
+        // TODO add your handling code here:
+        comparar();
+    }//GEN-LAST:event_btn_06MouseExited
+
+    private void btn_07MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_07MouseExited
+        // TODO add your handling code here:
+        comparar();
+    }//GEN-LAST:event_btn_07MouseExited
+
+    private void btn_08MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_08MouseExited
+        // TODO add your handling code here:
+        comparar();
+    }//GEN-LAST:event_btn_08MouseExited
+
+    private void btn_09MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_09MouseExited
+        // TODO add your handling code here:
+        comparar();
+    }//GEN-LAST:event_btn_09MouseExited
+
+    private void btn_10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_10MouseExited
+        // TODO add your handling code here:
+        comparar();
+    }//GEN-LAST:event_btn_10MouseExited
+
+    private void btn_11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_11MouseExited
+        // TODO add your handling code here:
+        comparar();
+    }//GEN-LAST:event_btn_11MouseExited
+
+    private void btn_12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_12MouseExited
+        // TODO add your handling code here:
+        comparar();
+    }//GEN-LAST:event_btn_12MouseExited
+
+    private void btn_13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_13MouseExited
+        // TODO add your handling code here:
+        comparar();
+    }//GEN-LAST:event_btn_13MouseExited
+
+    private void btn_14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_14MouseExited
+        // TODO add your handling code here:
+        comparar();
+    }//GEN-LAST:event_btn_14MouseExited
+
+    private void btn_15MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_15MouseExited
+        // TODO add your handling code here:
+        comparar();
+    }//GEN-LAST:event_btn_15MouseExited
+
+    private void btn_16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_16MouseExited
+        // TODO add your handling code here:
+        comparar();
+    }//GEN-LAST:event_btn_16MouseExited
+
     
     private void setCartas() {
         int[] numbers = funcionamiento.desordenar();
@@ -375,9 +566,7 @@ public class Gameplay extends javax.swing.JPanel {
         btn_16.setDisabledIcon(new ImageIcon(getClass().getResource("../imagenes/c"+numbers[15]+".png")));
     }
     
-    private void botonEnable(JButton btn) {
-        btn.setEnabled(false);
-    }
+  
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
