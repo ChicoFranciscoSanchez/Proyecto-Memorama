@@ -3,6 +3,7 @@ package main;
 import views.Gameplay;
 import java.awt.IllegalComponentStateException;
 import javax.swing.JPanel;
+import views.MenuScreen;
 
 /**
  *
@@ -15,7 +16,7 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public MainWindow() {
         initComponents();
-        this.setNewContent(new Gameplay(this));
+        this.setNewContent(new MenuScreen(this));
     }
 
     /**
@@ -28,6 +29,9 @@ public class MainWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(400, 500));
+        setMinimumSize(new java.awt.Dimension(400, 500));
+        setPreferredSize(new java.awt.Dimension(400, 475));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
